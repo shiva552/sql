@@ -1,0 +1,57 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct1;
+Database changed
+
+MariaDB [mpct1]> create table user2(id int AUTO_INCREMENT, name varchar(50),city varchar(50),PRIMARY KEY (id));
+Query OK, 0 rows affected (0.615 sec)
+
+MariaDB [mpct1]> insert into user2(name,city)values('Shiva','Gwalior');
+Query OK, 1 row affected (0.077 sec)
+
+MariaDB [mpct1]> insert into user2(name,city)values('Shruti','Gwalior');
+Query OK, 1 row affected (0.074 sec)
+
+MariaDB [mpct1]> select * from user2;
++----+--------+---------+
+| id | name   | city    |
++----+--------+---------+
+|  1 | Shiva  | Gwalior |
+|  2 | Shruti | Gwalior |
++----+--------+---------+
+2 rows in set (0.001 sec)
+ 
+MariaDB [mpct1]> create table team(id int AUTO_INCREMENT, name varchar(50),email varchar(50),phone varchar(50),city varchar(50),college varchar(50),address varchar(50),PRIMARY KEY(id));
+Query OK, 0 rows affected (0.420 sec)
+
+MariaDB [mpct1]> insert into team(name,email,phone,city,college,address)values('Shiva','shi@gmail.com','569008363282','gwalior','mits','thatipur');
+Query OK, 1 row affected (0.105 sec)
+
+MariaDB [mpct1]> insert into team(name,email,phone,city,college,address)values('Shruti','shru@gmail.com','67890063282','gwalior','itm','kampu');
+Query OK, 1 row affected (0.078 sec)
+
+MariaDB [mpct1]> insert into team(name,email,phone,city,college,address)values('Shreya','shri@gmail.com','6789003282','bhopal','lnct','kampu');
+Query OK, 1 row affected (0.069 sec)
+
+MariaDB [mpct1]> select * from team;
++----+--------+----------------+--------------+---------+---------+----------+
+| id | name   | email          | phone        | city    | college | address  |
++----+--------+----------------+--------------+---------+---------+----------+
+|  1 | Shiva  | shi@gmail.com  | 569008363282 | gwalior | mits    | thatipur |
+|  2 | Shruti | shru@gmail.com | 67890063282  | gwalior | itm     | kampu    |
+|  3 | Shreya | shri@gmail.com | 6789003282   | bhopal  | lnct    | kampu    |
++----+--------+----------------+--------------+---------+---------+----------+
+3 rows in set (0.003 sec)
+
+MariaDB [mpct1]>

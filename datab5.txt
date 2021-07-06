@@ -1,0 +1,199 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct3
+Database changed
+MariaDB [mpct3]> create table m2(id int NOT NULL AUTO_INCREMENT,name varchar(50),email varchar(50),salary varchar(50),city varchar(50),dept varchar(50),college varchar(50),PRIMARY KEY(id));
+Query OK, 0 rows affected (0.326 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shiva','shiv@gmail.com','567534','gwalior','electronics','mits');
+Query OK, 1 row affected (0.093 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shreya','shryu@gmail.com','567534','bhopal','electronics','lnct');
+Query OK, 1 row affected (0.113 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shruti','shruti@gmail.com','565464','jabalpur','cse','mits');
+Query OK, 1 row affected (0.082 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Chetna','chet@gmail.com','5645664','jaipur','cse','itm');
+Query OK, 1 row affected (0.095 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Priya','priya@gmail.com','5645664','jaipur','cse','itm');
+Query OK, 1 row affected (0.083 sec)
+
+MariaDB [mpct3]> select * from m2;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
++----+--------+------------------+---------+----------+-------------+---------+
+5 rows in set (0.008 sec)
+
+MariaDB [mpct3]> select * from m2 where salary='5645664';
++----+--------+-----------------+---------+--------+------+---------+
+| id | name   | email           | salary  | city   | dept | college |
++----+--------+-----------------+---------+--------+------+---------+
+|  4 | Chetna | chet@gmail.com  | 5645664 | jaipur | cse  | itm     |
+|  5 | Priya  | priya@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+--------+-----------------+---------+--------+------+---------+
+2 rows in set (0.002 sec)
+
+MariaDB [mpct3]> select * from m2 where dept='electronics';
++----+--------+-----------------+--------+---------+-------------+---------+
+| id | name   | email           | salary | city    | dept        | college |
++----+--------+-----------------+--------+---------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com  | 567534 | gwalior | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com | 567534 | bhopal  | electronics | lnct    |
++----+--------+-----------------+--------+---------+-------------+---------+
+
+MariaDB [mpct3]> select * from m2 where college!='itm';
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.003 sec)
+
+MariaDB [mpct3]> select * from m2 where id=2;
++----+--------+-----------------+--------+--------+-------------+---------+
+| id | name   | email           | salary | city   | dept        | college |
++----+--------+-----------------+--------+--------+-------------+---------+
+|  2 | Shreya | shryu@gmail.com | 567534 | bhopal | electronics | lnct    |
++----+--------+-----------------+--------+--------+-------------+---------+
+1 row in set (0.043 sec)
+
+MariaDB [mpct3]> select * from m2 where id='2';
++----+--------+-----------------+--------+--------+-------------+---------+
+| id | name   | email           | salary | city   | dept        | college |
++----+--------+-----------------+--------+--------+-------------+---------+
+|  2 | Shreya | shryu@gmail.com | 567534 | bhopal | electronics | lnct    |
++----+--------+-----------------+--------+--------+-------------+---------+
+1 row in set (0.055 sec)
+
+MariaDB [mpct3]> select * from m2 limit 3;
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.002 sec)
+
+MariaDB [mpct3]> select * from m2 limit 1,4;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
++----+--------+------------------+---------+----------+-------------+---------+
+4 rows in set (0.006 sec)
+
+MariaDB [mpct3]> select * from m2 limit 0,4;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
++----+--------+------------------+---------+----------+-------------+---------+
+4 rows in set (0.005 sec)
+
+MariaDB [mpct3]> select * from m2 limit 3,4;
++----+--------+-----------------+---------+--------+------+---------+
+| id | name   | email           | salary  | city   | dept | college |
++----+--------+-----------------+---------+--------+------+---------+
+|  4 | Chetna | chet@gmail.com  | 5645664 | jaipur | cse  | itm     |
+|  5 | Priya  | priya@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+--------+-----------------+---------+--------+------+---------+
+2 rows in set (0.012 sec)
+
+MariaDB [mpct3]> select * from m2 order by id desc;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
++----+--------+------------------+---------+----------+-------------+---------+
+5 rows in set (0.039 sec)
+
+MariaDB [mpct3]> select * from m2 order by id desc limit 1;
++----+-------+-----------------+---------+--------+------+---------+
+| id | name  | email           | salary  | city   | dept | college |
++----+-------+-----------------+---------+--------+------+---------+
+|  5 | Priya | priya@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+-------+-----------------+---------+--------+------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [mpct3]> select * from m2 where id<4;
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.042 sec)
+
+MariaDB [mpct3]> select * from m2 where name<'r';
++----+--------+-----------------+---------+--------+------+---------+
+| id | name   | email           | salary  | city   | dept | college |
++----+--------+-----------------+---------+--------+------+---------+
+|  4 | Chetna | chet@gmail.com  | 5645664 | jaipur | cse  | itm     |
+|  5 | Priya  | priya@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+--------+-----------------+---------+--------+------+---------+
+2 rows in set (0.036 sec)
+
+MariaDB [mpct3]> select * from m2 where name>'r';
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.033 sec)
+
+MariaDB [mpct3]> select * from m2 where name >='s';
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.001 sec)
+
+MariaDB [mpct3]> select * from m2 where name>'s';
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.001 sec)
+
+MariaDB [mpct3]>

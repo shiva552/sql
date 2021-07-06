@@ -1,0 +1,112 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct3
+Database changed
+MariaDB [mpct3]> create table m4(id int NOT NULL AUTO_INCREMENT,pro_name varchar(50),price varchar(50),city varchar(50),email varchar(50),phone varcahar(50),salary varchar(50),dept varchar(50),PRIMARY KEY(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(50),salary varchar(50),dept varchar(50),PRIMARY KEY(id))' at line 1
+MariaDB [mpct3]> create table m4(id int NOT NULL AUTO_INCREMENT,pro_name varchar(50),price varchar(50),city varchar(50),email varchar(50),phone varchar(50),salary varchar(50),dept varchar(50),PRIMARY KEY(id));
+Query OK, 0 rows affected (0.735 sec)
+
+MariaDB [mpct3]> insert into m4(pro_name,price,city,email,phone,salary,dept)values('mixer','678','gwalior','shi@g,mail.com','658346347833','8896','ec');
+Query OK, 1 row affected (0.375 sec)
+
+MariaDB [mpct3]> insert into m4(pro_name,price,city,email,phone,salary,dept)values('gown','900','bhopal','shu@g,mail.com','658346347833','8896','ec');
+Query OK, 1 row affected (0.080 sec)
+
+MariaDB [mpct3]> insert into m4(pro_name,price,city,email,phone,salary,dept)values('speaker','800','datia','pri@gmail.com','65745743833','78996','ec');
+Query OK, 1 row affected (0.084 sec)
+
+MariaDB [mpct3]> insert into m4(pro_name,price,city,email,phone,salary,dept)values('piano','780','datia','shri@gmail.com','67534343833','4536386','it');
+Query OK, 1 row affected (0.135 sec)
+
+MariaDB [mpct3]> insert into m4(pro_name,price,city,email,phone,salary,dept)values('colours','200','jaipur','s@gmail.com','6755454643','576386','it');
+Query OK, 1 row affected (0.105 sec)
+
+MariaDB [mpct3]> select * from m4 where pro_name in('gown','mixer');
++----+----------+-------+---------+----------------+--------------+--------+------+
+| id | pro_name | price | city    | email          | phone        | salary | dept |
++----+----------+-------+---------+----------------+--------------+--------+------+
+|  1 | mixer    | 678   | gwalior | shi@g,mail.com | 658346347833 | 8896   | ec   |
+|  2 | gown     | 900   | bhopal  | shu@g,mail.com | 658346347833 | 8896   | ec   |
++----+----------+-------+---------+----------------+--------------+--------+------+
+2 rows in set (0.043 sec)
+
+MariaDB [mpct3]> select * from m4 where id between 1 and 3;
++----+----------+-------+---------+----------------+--------------+--------+------+
+| id | pro_name | price | city    | email          | phone        | salary | dept |
++----+----------+-------+---------+----------------+--------------+--------+------+
+|  1 | mixer    | 678   | gwalior | shi@g,mail.com | 658346347833 | 8896   | ec   |
+|  2 | gown     | 900   | bhopal  | shu@g,mail.com | 658346347833 | 8896   | ec   |
+|  3 | speaker  | 800   | datia   | pri@gmail.com  | 65745743833  | 78996  | ec   |
++----+----------+-------+---------+----------------+--------------+--------+------+
+3 rows in set (0.042 sec)
+
+MariaDB [mpct3]> select id,pro_name from m4 where (id between 1 and 3) and(email in ('shi@gmail.com'));
+Empty set (0.012 sec)
+
+MariaDB [mpct3]> select id,pro_name from m4 where (id between 1 and 3) and(email in ('pri@gmail.com'));
++----+----------+
+| id | pro_name |
++----+----------+
+|  3 | speaker  |
++----+----------+
+1 row in set (0.004 sec)
+
+MariaDB [mpct3]> select * from m2;
++----+---------+------------------+---------+----------+-------------+---------+
+| id | name    | email            | salary  | city     | dept        | college |
++----+---------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva   | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya  | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti  | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna  | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya   | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
+|  6 | Shiva   | s@gmail.com      | 754893  | gwalior  | cse         | mits    |
+|  7 | Shruti  | shru@gmail.com   | 754893  | jabalpur | itm         | mits    |
+|  8 | Shivani | shivam@gmail.com | 6453893 | bhopal   | it          | mits    |
++----+---------+------------------+---------+----------+-------------+---------+
+8 rows in set (0.134 sec)
+
+MariaDB [mpct3]> create table m5(id int NOT NULL AUTO_INCREMENT,name varchar(50),class varchar(30), email varchar(50),phone varchar(50) UNIQUE KEY,PRIMARY KEY(id));
+Query OK, 0 rows affected (1.083 sec)
+
+MariaDB [mpct3]> insert into m5(name,class,email,phone)values('Shiva','8','s@gmail.com','3672920227826');
+ERROR 1062 (23000): Duplicate entry '3672920227826' for key 'phone'
+MariaDB [mpct3]> insert into m5(name,class,email,phone)values('Shruti','9','s@gmail.com','393663826');
+Query OK, 1 row affected (0.079 sec)
+
+MariaDB [mpct3]> insert into m5(name,class,email,phone)values('Shreya','10','s@gmail.com','3837313826');
+Query OK, 1 row affected (0.130 sec)
+
+MariaDB [mpct3]> select * from m5;
++----+--------+-------+-------------+---------------+
+| id | name   | class | email       | phone         |
++----+--------+-------+-------------+---------------+
+|  1 | Shiva  | 8     | s@gmail.com | 3672920227826 |
+|  3 | Shruti | 9     | s@gmail.com | 393663826     |
+|  4 | Shreya | 10    | s@gmail.com | 3837313826    |
++----+--------+-------+-------------+---------------+
+3 rows in set (0.001 sec)
+
+MariaDB [mpct3]> select name as name1 from m5;
++--------+
+| name1  |
++--------+
+| Shiva  |
+| Shruti |
+| Shreya |
++--------+
+3 rows in set (0.008 sec)
+
+MariaDB [mpct3]>

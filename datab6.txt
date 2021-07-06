@@ -1,0 +1,227 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct3
+Database changed
+MariaDB [mpct3]> select * from m2;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
++----+--------+------------------+---------+----------+-------------+---------+
+5 rows in set (0.550 sec)
+
+MariaDB [mpct3]> select * from m2 order by id desc;
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
++----+--------+------------------+---------+----------+-------------+---------+
+5 rows in set (0.001 sec)
+
+MariaDB [mpct3]> select * from m2 where id !=3;
++----+--------+-----------------+---------+---------+-------------+---------+
+| id | name   | email           | salary  | city    | dept        | college |
++----+--------+-----------------+---------+---------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com  | 567534  | gwalior | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com | 567534  | bhopal  | electronics | lnct    |
+|  4 | Chetna | chet@gmail.com  | 5645664 | jaipur  | cse         | itm     |
+|  5 | Priya  | priya@gmail.com | 5645664 | jaipur  | cse         | itm     |
++----+--------+-----------------+---------+---------+-------------+---------+
+4 rows in set (0.056 sec)
+
+MariaDB [mpct3]> select * from m2 limit 3;
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.002 sec)
+
+MariaDB [mpct3]> select * from m2 order by id desc limit 1;
++----+-------+-----------------+---------+--------+------+---------+
+| id | name  | email           | salary  | city   | dept | college |
++----+-------+-----------------+---------+--------+------+---------+
+|  5 | Priya | priya@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+-------+-----------------+---------+--------+------+---------+
+1 row in set (0.012 sec)
+
+MariaDB [mpct3]> select * from m2 limt 2,3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '2,3' at line 1
+MariaDB [mpct3]> select * from m2 limit 2,3;
++----+--------+------------------+---------+----------+------+---------+
+| id | name   | email            | salary  | city     | dept | college |
++----+--------+------------------+---------+----------+------+---------+
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse  | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse  | itm     |
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse  | itm     |
++----+--------+------------------+---------+----------+------+---------+
+3 rows in set (0.011 sec)
+
+MariaDB [mpct3]> create table z(id int NOT NULL AUTO_INCREMENT,name varchar(50),email varchar(50),salary varchar(50),city varchar(50),dept varchar(50),dept varchar(50),college varchare(50),PRIMARY KEY(id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(50),PRIMARY KEY(id))' at line 1
+MariaDB [mpct3]> create table z(id int NOT NULL AUTO_INCREMENT,name varchar(50),email varchar(50),salary varchar(50),city varchar(50),dept varchar(50),dept varchar(50),college varchar(50),PRIMARY KEY(id));
+ERROR 1060 (42S21): Duplicate column name 'dept'
+MariaDB [mpct3]> create table z(id int NOT NULL AUTO_INCREMENT,name varchar(50),email varchar(50),salary varchar(50),city varchar(50),dept varchar(50),college varchar(50),PRIMARY KEY(id));
+Query OK, 0 rows affected (0.731 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shiva','s@gmail.com','754893' ,'gwalior','cse','mits');
+Query OK, 1 row affected (0.100 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shruti','shru@gmail.com','754893' ,'jabalpur','itm','mits');
+Query OK, 1 row affected (0.077 sec)
+
+MariaDB [mpct3]> insert into m2(name,email,salary,city,dept,college)values('Shivani','shivam@gmail.com','6453893' ,'bhopal','it','mits');
+Query OK, 1 row affected (0.061 sec)
+
+MariaDB [mpct3]> select * from m2;
++----+---------+------------------+---------+----------+-------------+---------+
+| id | name    | email            | salary  | city     | dept        | college |
++----+---------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva   | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya  | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti  | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna  | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya   | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
+|  6 | Shiva   | s@gmail.com      | 754893  | gwalior  | cse         | mits    |
+|  7 | Shruti  | shru@gmail.com   | 754893  | jabalpur | itm         | mits    |
+|  8 | Shivani | shivam@gmail.com | 6453893 | bhopal   | it          | mits    |
++----+---------+------------------+---------+----------+-------------+---------+
+8 rows in set (0.001 sec)
+
+MariaDB [mpct3]> select * from m2 where name='Shruti' and college='mits';
++----+--------+------------------+--------+----------+------+---------+
+| id | name   | email            | salary | city     | dept | college |
++----+--------+------------------+--------+----------+------+---------+
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse  | mits    |
+|  7 | Shruti | shru@gmail.com   | 754893 | jabalpur | itm  | mits    |
++----+--------+------------------+--------+----------+------+---------+
+2 rows in set (0.079 sec)
+
+MariaDB [mpct3]> select * from m2 where college='mits' or name='Chetna';
++----+---------+------------------+---------+----------+-------------+---------+| id | name    | email            | salary  | city     | dept        | college |+----+---------+------------------+---------+----------+-------------+---------+|  1 | Shiva   | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    ||  3 | Shruti  | shruti@gmail.com | 565464  | jabalpur | cse         | mits    ||  4 | Chetna  | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     ||  6 | Shiva   | s@gmail.com      | 754893  | gwalior  | cse         | mits    ||  7 | Shruti  | shru@gmail.com   | 754893  | jabalpur | itm         | mits    ||  8 | Shivani | shivam@gmail.com | 6453893 | bhopal   | it          | mits    |+----+---------+------------------+---------+----------+-------------+---------+6 rows in set (0.060 sec)
+
+MariaDB [mpct3]> select * from m2 where name='Shiva' and (id=1 or email='s@gmail.com');
++----+-------+----------------+--------+---------+-------------+---------+
+| id | name  | email          | salary | city    | dept        | college |
++----+-------+----------------+--------+---------+-------------+---------+
+|  1 | Shiva | shiv@gmail.com | 567534 | gwalior | electronics | mits    |
+|  6 | Shiva | s@gmail.com    | 754893 | gwalior | cse         | mits    |
++----+-------+----------------+--------+---------+-------------+---------+
+2 rows in set (0.061 sec)
+
+MariaDB [mpct3]> select * from m2 where name in('Shiva','Shruti');
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
+|  6 | Shiva  | s@gmail.com      | 754893 | gwalior  | cse         | mits    |
+|  7 | Shruti | shru@gmail.com   | 754893 | jabalpur | itm         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+4 rows in set (0.027 sec)
+
+MariaDB [mpct3]> select name from m2 where college not in('mits','itm');
++--------+
+| name   |
++--------+
+| Shreya |
++--------+
+1 row in set (0.001 sec)
+
+MariaDB [mpct3]> select id,name,city from m2 where id between 2 and 5;
++----+--------+----------+
+| id | name   | city     |
++----+--------+----------+
+|  2 | Shreya | bhopal   |
+|  3 | Shruti | jabalpur |
+|  4 | Chetna | jaipur   |
+|  5 | Priya  | jaipur   |
++----+--------+----------+
+4 rows in set (0.063 sec)
+
+MariaDB [mpct3]> select * from m2 where id between 1 and 3;
++----+--------+------------------+--------+----------+-------------+---------+
+| id | name   | email            | salary | city     | dept        | college |
++----+--------+------------------+--------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534 | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534 | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464 | jabalpur | cse         | mits    |
++----+--------+------------------+--------+----------+-------------+---------+
+3 rows in set (0.002 sec)
+
+MariaDB [mpct3]> select * from m2 where (salary between 68000 and 67869504) and dept in('electronics','cse');
++----+--------+------------------+---------+----------+-------------+---------+
+| id | name   | email            | salary  | city     | dept        | college |
++----+--------+------------------+---------+----------+-------------+---------+
+|  1 | Shiva  | shiv@gmail.com   | 567534  | gwalior  | electronics | mits    |
+|  2 | Shreya | shryu@gmail.com  | 567534  | bhopal   | electronics | lnct    |
+|  3 | Shruti | shruti@gmail.com | 565464  | jabalpur | cse         | mits    |
+|  4 | Chetna | chet@gmail.com   | 5645664 | jaipur   | cse         | itm     |
+|  5 | Priya  | priya@gmail.com  | 5645664 | jaipur   | cse         | itm     |
+|  6 | Shiva  | s@gmail.com      | 754893  | gwalior  | cse         | mits    |
++----+--------+------------------+---------+----------+-------------+---------+
+6 rows in set (0.033 sec)
+
+MariaDB [mpct3]> select * from m2 where (salary between 68000 and 67869504) and dept not in('electronics','cse');
++----+---------+------------------+---------+----------+------+---------+
+| id | name    | email            | salary  | city     | dept | college |
++----+---------+------------------+---------+----------+------+---------+
+|  7 | Shruti  | shru@gmail.com   | 754893  | jabalpur | itm  | mits    |
+|  8 | Shivani | shivam@gmail.com | 6453893 | bhopal   | it   | mits    |
++----+---------+------------------+---------+----------+------+---------+
+2 rows in set (0.041 sec)
+
+MariaDB [mpct3]> select * from m2 where name like'c%';
++----+--------+----------------+---------+--------+------+---------+
+| id | name   | email          | salary  | city   | dept | college |
++----+--------+----------------+---------+--------+------+---------+
+|  4 | Chetna | chet@gmail.com | 5645664 | jaipur | cse  | itm     |
++----+--------+----------------+---------+--------+------+---------+
+1 row in set (0.002 sec)
+
+MariaDB [mpct3]> select * from m2 where name like'%ya';
++----+--------+-----------------+---------+--------+-------------+---------+
+| id | name   | email           | salary  | city   | dept        | college |
++----+--------+-----------------+---------+--------+-------------+---------+
+|  2 | Shreya | shryu@gmail.com | 567534  | bhopal | electronics | lnct    |
+|  5 | Priya  | priya@gmail.com | 5645664 | jaipur | cse         | itm     |
++----+--------+-----------------+---------+--------+-------------+---------+
+2 rows in set (0.001 sec)
+
+MariaDB [mpct3]> select name from m2 where email like '%si%';
+Empty set (0.001 sec)
+
+MariaDB [mpct3]> select name from m2 where email like '%sh%';
++---------+
+| name    |
++---------+
+| Shiva   |
+| Shreya  |
+| Shruti  |
+| Shruti  |
+| Shivani |
++---------+
+5 rows in set (0.001 sec)
+
+MariaDB [mpct3]>

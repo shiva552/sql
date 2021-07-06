@@ -1,0 +1,66 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct3
+Database changed
+MariaDB [mpct3]> desc m1;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(50) | YES  |     | NULL    |                |
+| email   | varchar(50) | YES  |     | NULL    |                |
+| phone   | varchar(50) | YES  |     | NULL    |                |
+| salary  | varchar(50) | YES  |     | NULL    |                |
+| dept    | varchar(50) | YES  |     | NULL    |                |
+| college | varchar(50) | YES  |     | NULL    |                |
+| city    | varchar(50) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+8 rows in set (0.204 sec)
+
+MariaDB [mpct3]> select * from m1;
++----+--------+----------------+-------------+--------+-------------+---------+---------+
+| id | name   | email          | phone       | salary | dept        | college | city    |
++----+--------+----------------+-------------+--------+-------------+---------+---------+
+|  1 | Shiva  | shiv@gmail.com | 6789634680  | 678865 | electronics | mits    | gwalior |
+|  2 | Shiva  | shiv@gmail.com | 6789634680  | 678865 | electronics | mits    | gwalior |
+|  3 | Shruti | sruv@gmail.com | 67897645680 | 676868 | computer    | lnct    | bhopal  |
++----+--------+----------------+-------------+--------+-------------+---------+---------+
+3 rows in set (0.188 sec)
+
+MariaDB [mpct3]> select * from m1 where email='shiv@gmail.com';
++----+-------+----------------+------------+--------+-------------+---------+---------+
+| id | name  | email          | phone      | salary | dept        | college | city    |
++----+-------+----------------+------------+--------+-------------+---------+---------+
+|  1 | Shiva | shiv@gmail.com | 6789634680 | 678865 | electronics | mits    | gwalior |
+|  2 | Shiva | shiv@gmail.com | 6789634680 | 678865 | electronics | mits    | gwalior |
++----+-------+----------------+------------+--------+-------------+---------+---------+
+2 rows in set (0.120 sec)
+
+MariaDB [mpct3]> select name,phone from m1 where college='lnct';
++--------+-------------+
+| name   | phone       |
++--------+-------------+
+| Shruti | 67897645680 |
++--------+-------------+
+1 row in set (0.000 sec)
+
+MariaDB [mpct3]> select * from m1 where college!='mits';
++----+--------+----------------+-------------+--------+----------+---------+--------+
+| id | name   | email          | phone       | salary | dept     | college | city   |
++----+--------+----------------+-------------+--------+----------+---------+--------+
+|  3 | Shruti | sruv@gmail.com | 67897645680 | 676868 | computer | lnct    | bhopal |
++----+--------+----------------+-------------+--------+----------+---------+--------+
+1 row in set (0.024 sec)
+
+MariaDB [mpct3]>

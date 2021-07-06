@@ -1,0 +1,240 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use mpct3
+Database changed
+MariaDB [mpct3]> create table ips(id int not null auto_increment,name varchar(50),password varchar(50),email varchar(50) unique key,phone varchar(50),salary varchar(50),dept varchar(50),college varchar(50),primary key(id));
+Query OK, 0 rows affected (0.451 sec)
+
+MariaDB [mpct3]> insert into ips(name,password,email,phone,salary,dept,college)values('Shiva','ffp09','shi@gmail.com','6782438392','890324','ec','mits');
+Query OK, 1 row affected (0.622 sec)
+
+MariaDB [mpct3]> insert into ips(name,password,email,phone,salary,dept,college)values('Shruti','hfge00','shru@gmail.com','9786538392','900324','it','itm');
+Query OK, 1 row affected (0.065 sec)
+
+MariaDB [mpct3]> insert into ips(name,password,email,phone,salary,dept,college)values('Simran','ui892','sim@gmail.com','873268392','893424','comm','krg');
+Query OK, 1 row affected (0.100 sec)
+
+MariaDB [mpct3]> insert into ips(name,password,email,phone,salary,dept,college)values('Sanchi','hi92','san@gmail.com','987468392','678924','cse','iiitm');
+Query OK, 1 row affected (0.098 sec)
+
+MariaDB [mpct3]> insert into ips(name,password,email,phone,salary,dept,college)values('Sunny','yush92','su@gmail.com','983363163','89536','comm','ibs');
+Query OK, 1 row affected (0.158 sec)
+
+MariaDB [mpct3]> select * from ips;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
+|  4 | Sanchi | hi92     | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
+|  5 | Sunny  | yush92   | su@gmail.com   | 983363163  | 89536  | comm | ibs     |
++----+--------+----------+----------------+------------+--------+------+---------+
+5 rows in set (0.072 sec)
+
+MariaDB [mpct3]> select * from ips limit 3;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
++----+--------+----------+----------------+------------+--------+------+---------+
+3 rows in set (0.003 sec)
+
+MariaDB [mpct3]> select * from ips where dept!='comm';
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  4 | Sanchi | hi92     | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
++----+--------+----------+----------------+------------+--------+------+---------+
+3 rows in set (0.045 sec)
+
+MariaDB [mpct3]> select * from ips where name in('Shiva','Sanchi');
++----+--------+----------+---------------+------------+--------+------+---------+
+| id | name   | password | email         | phone      | salary | dept | college |
++----+--------+----------+---------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com | 6782438392 | 890324 | ec   | mits    |
+|  4 | Sanchi | hi92     | san@gmail.com | 987468392  | 678924 | cse  | iiitm   |
++----+--------+----------+---------------+------------+--------+------+---------+
+2 rows in set (0.037 sec)
+
+MariaDB [mpct3]> select * from ips where id between 1 and 3;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
++----+--------+----------+----------------+------------+--------+------+---------+
+3 rows in set (0.040 sec)
+
+MariaDB [mpct3]> select * from ips where name like '%a';
++----+-------+----------+---------------+------------+--------+------+---------+
+| id | name  | password | email         | phone      | salary | dept | college |
++----+-------+----------+---------------+------------+--------+------+---------+
+|  1 | Shiva | ffp09    | shi@gmail.com | 6782438392 | 890324 | ec   | mits    |
++----+-------+----------+---------------+------------+--------+------+---------+
+1 row in set (0.005 sec)
+
+MariaDB [mpct3]> select * from ips where id=3 and dept='comm';
++----+--------+----------+---------------+-----------+--------+------+---------+
+| id | name   | password | email         | phone     | salary | dept | college |
++----+--------+----------+---------------+-----------+--------+------+---------+
+|  3 | Simran | ui892    | sim@gmail.com | 873268392 | 893424 | comm | krg     |
++----+--------+----------+---------------+-----------+--------+------+---------+
+1 row in set (0.037 sec)
+
+MariaDB [mpct3]> select * from ips where (id between 2 and 4) and (name in('Shruti','Shiva'));
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
++----+--------+----------+----------------+------------+--------+------+---------+
+1 row in set (0.003 sec)
+
+MariaDB [mpct3]> select * from ips order by id desc;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | name   | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  5 | Sunny  | yush92   | su@gmail.com   | 983363163  | 89536  | comm | ibs     |
+|  4 | Sanchi | hi92     | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
++----+--------+----------+----------------+------------+--------+------+---------+
+5 rows in set (0.011 sec)
+
+MariaDB [mpct3]> alter table ips add column eam varchar(50);
+Query OK, 0 rows affected (0.181 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> alter table ips add constraint unique key(phone);
+Query OK, 0 rows affected (0.424 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> alter table ips change column name fname varchar(50);
+Query OK, 0 rows affected (0.135 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> desc ips;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fname    | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| college  | varchar(50) | YES  |     | NULL    |                |
+| eam      | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+9 rows in set (0.061 sec)
+
+MariaDB [mpct3]> alter table ips drop column eam;
+Query OK, 0 rows affected (0.197 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> desc ips;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fname    | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| college  | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.085 sec)
+
+MariaDB [mpct3]> rename table ips to m7;
+Query OK, 0 rows affected (0.338 sec)
+
+MariaDB [mpct3]> select * from m7;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | fname  | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
+|  4 | Sanchi | hi92     | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
+|  5 | Sunny  | yush92   | su@gmail.com   | 983363163  | 89536  | comm | ibs     |
++----+--------+----------+----------------+------------+--------+------+---------+
+5 rows in set (0.011 sec)
+
+MariaDB [mpct3]> show columns from m7;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fname    | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| college  | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.079 sec)
+
+MariaDB [mpct3]> update m7 set fname='ronak',password='ro897' where id=4;
+Query OK, 1 row affected (0.086 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mpct3]> select * from m7;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | fname  | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
+|  4 | ronak  | ro897    | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
+|  5 | Sunny  | yush92   | su@gmail.com   | 983363163  | 89536  | comm | ibs     |
++----+--------+----------+----------------+------------+--------+------+---------+
+5 rows in set (0.003 sec)
+
+MariaDB [mpct3]> delete from m7 where id=5;
+Query OK, 1 row affected (0.076 sec)
+
+MariaDB [mpct3]> select * from m7;
++----+--------+----------+----------------+------------+--------+------+---------+
+| id | fname  | password | email          | phone      | salary | dept | college |
++----+--------+----------+----------------+------------+--------+------+---------+
+|  1 | Shiva  | ffp09    | shi@gmail.com  | 6782438392 | 890324 | ec   | mits    |
+|  2 | Shruti | hfge00   | shru@gmail.com | 9786538392 | 900324 | it   | itm     |
+|  3 | Simran | ui892    | sim@gmail.com  | 873268392  | 893424 | comm | krg     |
+|  4 | ronak  | ro897    | san@gmail.com  | 987468392  | 678924 | cse  | iiitm   |
++----+--------+----------+----------------+------------+--------+------+---------+
+4 rows in set (0.002 sec)
+
+MariaDB [mpct3]> truncate table m7;
+Query OK, 0 rows affected (0.909 sec)
+
+MariaDB [mpct3]> select * from m7;
+Empty set (0.023 sec)
+
+MariaDB [mpct3]> drop table m7;
+Query OK, 0 rows affected (0.176 sec)
+
+MariaDB [mpct3]> drop database mpct3;
+Query OK, 6 rows affected (2.444 sec)
+
+MariaDB [(none)]>

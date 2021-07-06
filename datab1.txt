@@ -1,0 +1,61 @@
+
+Setting environment for using XAMPP for Windows.
+HP@DESKTOP-H48FLT4 c:\xampp
+# mysql -h localhost -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 22
+Server version: 10.4.19-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database students;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| students           |
+| test               |
++--------------------+
+6 rows in set (0.003 sec)
+
+MariaDB [(none)]> use students;
+Database changed
+MariaDB [students]> create table mba(name varchar(50),roll varchar(50),address varchar(50));
+Query OK, 0 rows affected (0.421 sec)
+
+MariaDB [students]> desc mba;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(50) | YES  |     | NULL    |       |
+| roll    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.027 sec)
+
+MariaDB [students]> create table mca(name varchar(50), roll varchar(50), address varchar(50));
+Query OK, 0 rows affected (0.414 sec)
+
+MariaDB [students]> create table btech(name varchar(50),roll varchar(50),address varchar(50));
+Query OK, 0 rows affected (0.402 sec)
+
+MariaDB [students]> desc mca;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(50) | YES  |     | NULL    |       |
+| roll    | varchar(50) | YES  |     | NULL    |       |
+| address | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.129 sec)
+
+MariaDB [students]> Bye

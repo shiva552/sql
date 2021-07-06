@@ -1,0 +1,158 @@
+MariaDB [mpct3]> alter table itm add column team varchar(50);
+Query OK, 0 rows affected (0.157 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> desc itm;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| username | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| team     | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.004 sec)
+
+MariaDB [mpct3]> select * from itm;
++----+----------+----------+------------------------+----------+--------+------+------+
+| id | username | password | email                  | phone    | salary | dept | team |
++----+----------+----------+------------------------+----------+--------+------+------+
+|  1 | somil    | 123      | somil2233@gmail.com    | 1234567  | 2000   | ec   | NULL |
+|  2 | sejal    | 321      | sejal2233@gmail.com    | 12398767 | 3000   | cs   | NULL |
+|  3 | riya     | 321      | riya2233@gmail.com     | 12398    | 5000   | cs   | NULL |
+|  4 | ashi     | 567      | ashi2233@gmail.com     | 12367090 | 5000   | it   | NULL |
+|  5 | harshita | 567      | harshita2233@gmail.com | 123670   | 10000  | it   | NULL |
++----+----------+----------+------------------------+----------+--------+------+------+
+5 rows in set (0.001 sec)
+
+MariaDB [mpct3]> alter table itm add column address varchar(50),add column fname varchar(40); 2 column saath m ai add krne ke liye
+Query OK, 0 rows affected (0.207 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> desc itm;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| username | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| team     | varchar(50) | YES  |     | NULL    |                |
+| address  | varchar(50) | YES  |     | NULL    |                |
+| fname    | varchar(40) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+10 rows in set (0.005 sec)
+
+MariaDB [mpct3]> select * from itm;
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+| id | username | password | email                  | phone    | salary | dept | team | address | fname |
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+|  1 | somil    | 123      | somil2233@gmail.com    | 1234567  | 2000   | ec   | NULL | NULL    | NULL  |
+|  2 | sejal    | 321      | sejal2233@gmail.com    | 12398767 | 3000   | cs   | NULL | NULL    | NULL  |
+|  3 | riya     | 321      | riya2233@gmail.com     | 12398    | 5000   | cs   | NULL | NULL    | NULL  |
+|  4 | ashi     | 567      | ashi2233@gmail.com     | 12367090 | 5000   | it   | NULL | NULL    | NULL  |
+|  5 | harshita | 567      | harshita2233@gmail.com | 123670   | 10000  | it   | NULL | NULL    | NULL  |
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [mpct3]> insert into itm(team)values('it');
+Query OK, 1 row affected (0.051 sec)
+
+MariaDB [mpct3]> select * from itm;
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+| id | username | password | email                  | phone    | salary | dept | team | address | fname |
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+|  1 | somil    | 123      | somil2233@gmail.com    | 1234567  | 2000   | ec   | NULL | NULL    | NULL  |
+|  2 | sejal    | 321      | sejal2233@gmail.com    | 12398767 | 3000   | cs   | NULL | NULL    | NULL  |
+|  3 | riya     | 321      | riya2233@gmail.com     | 12398    | 5000   | cs   | NULL | NULL    | NULL  |
+|  4 | ashi     | 567      | ashi2233@gmail.com     | 12367090 | 5000   | it   | NULL | NULL    | NULL  |
+|  5 | harshita | 567      | harshita2233@gmail.com | 123670   | 10000  | it   | NULL | NULL    | NULL  |
+|  6 | NULL     | NULL     | NULL                   | NULL     | NULL   | NULL | it   | NULL    | NULL  |
++----+----------+----------+------------------------+----------+--------+------+------+---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [mpct3]> alter table itm add column vv varchar(50) first; ----------------sabse pehle new column ke liye
+Query OK, 0 rows affected (0.079 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> alter table itm add column ss varchar(50) after email;    -----kisii column ke baad agr new column cahiye ho to
+Query OK, 0 rows affected (0.074 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> select * from itm;
++------+----+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+| vv   | id | username | password | email                  | ss   | phone    | salary | dept | team | address | fname |
++------+----+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+| NULL |  1 | somil    | 123      | somil2233@gmail.com    | NULL | 1234567  | 2000   | ec   | NULL | NULL    | NULL  |
+| NULL |  2 | sejal    | 321      | sejal2233@gmail.com    | NULL | 12398767 | 3000   | cs   | NULL | NULL    | NULL  |
+| NULL |  3 | riya     | 321      | riya2233@gmail.com     | NULL | 12398    | 5000   | cs   | NULL | NULL    | NULL  |
+| NULL |  4 | ashi     | 567      | ashi2233@gmail.com     | NULL | 12367090 | 5000   | it   | NULL | NULL    | NULL  |
+| NULL |  5 | harshita | 567      | harshita2233@gmail.com | NULL | 123670   | 10000  | it   | NULL | NULL    | NULL  |
+| NULL |  6 | NULL     | NULL     | NULL                   | NULL | NULL     | NULL   | NULL | it   | NULL    | NULL  |
++------+----+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [mpct3]> alter table itm add column abc varchar(50) unique key after id ;    --------new column unique key ke saath add krna ho to
+Query OK, 0 rows affected (0.328 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> select * from itm;
++------+----+------+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+| vv   | id | abc  | username | password | email                  | ss   | phone    | salary | dept | team | address | fname |
++------+----+------+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+| NULL |  1 | NULL | somil    | 123      | somil2233@gmail.com    | NULL | 1234567  | 2000   | ec   | NULL | NULL    | NULL  |
+| NULL |  2 | NULL | sejal    | 321      | sejal2233@gmail.com    | NULL | 12398767 | 3000   | cs   | NULL | NULL    | NULL  |
+| NULL |  3 | NULL | riya     | 321      | riya2233@gmail.com     | NULL | 12398    | 5000   | cs   | NULL | NULL    | NULL  |
+| NULL |  4 | NULL | ashi     | 567      | ashi2233@gmail.com     | NULL | 12367090 | 5000   | it   | NULL | NULL    | NULL  |
+| NULL |  5 | NULL | harshita | 567      | harshita2233@gmail.com | NULL | 123670   | 10000  | it   | NULL | NULL    | NULL  |
+| NULL |  6 | NULL | NULL     | NULL     | NULL                   | NULL | NULL     | NULL   | NULL | it   | NULL    | NULL  |
++------+----+------+----------+----------+------------------------+------+----------+--------+------+------+---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [mpct3]> alter table itm add constraint unique key (team);   --------------------pehle se jo column hai use unique key mai convert krne ke liye
+Query OK, 0 rows affected (0.142 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> desc itm;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| vv       | varchar(50) | YES  |     | NULL    |                |
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| abc      | varchar(50) | YES  | UNI | NULL    |                |
+| username | varchar(50) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| ss       | varchar(50) | YES  |     | NULL    |                |
+| phone    | varchar(50) | YES  | UNI | NULL    |                |
+| salary   | varchar(50) | YES  |     | NULL    |                |
+| dept     | varchar(50) | YES  |     | NULL    |                |
+| team     | varchar(50) | YES  | UNI | NULL    |                |
+| address  | varchar(50) | YES  |     | NULL    |                |
+| fname    | varchar(40) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+13 rows in set (0.006 sec)
+
+MariaDB [mpct3]> alter table itm change column team teams varchar(50);   ---------------pehle se jo column hai uska naam change krne ke liye
+Query OK, 0 rows affected (0.042 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mpct3]> select * from itm;
++------+----+------+----------+----------+------------------------+------+----------+--------+------+-------+---------+-------+
+| vv   | id | abc  | username | password | email                  | ss   | phone    | salary | dept | teams | address | fname |
++------+----+------+----------+----------+------------------------+------+----------+--------+------+-------+---------+-------+
+| NULL |  1 | NULL | somil    | 123      | somil2233@gmail.com    | NULL | 1234567  | 2000   | ec   | NULL  | NULL    | NULL  |
+| NULL |  2 | NULL | sejal    | 321      | sejal2233@gmail.com    | NULL | 12398767 | 3000   | cs   | NULL  | NULL    | NULL  |
+| NULL |  3 | NULL | riya     | 321      | riya2233@gmail.com     | NULL | 12398    | 5000   | cs   | NULL  | NULL    | NULL  |
+| NULL |  4 | NULL | ashi     | 567      | ashi2233@gmail.com     | NULL | 12367090 | 5000   | it   | NULL  | NULL    | NULL  |
+| NULL |  5 | NULL | harshita | 567      | harshita2233@gmail.com | NULL | 123670   | 10000  | it   | NULL  | NULL    | NULL  |
+| NULL |  6 | NULL | NULL     | NULL     | NULL                   | NULL | NULL     | NULL   | NULL | it    | NULL    | NULL  |
++------+----+------+----------+----------+------------------------+------+----------+--------+------+-------+---------+-------+
+6 rows in set (0.000 sec)
